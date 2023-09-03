@@ -31,7 +31,7 @@ async function render_html(markdown, data, octokit) {
     const title = get_title(markdown)
     const body = await render_markdown(markdown, octokit)
     const content = {...{title, body}, ...data}
-    const template_path = path.join(__dirname, "template.html")
+    const template_path = path.join(__dirname, "..", "src", "template.html")
     return render_template(template_path, content)
 }
 
