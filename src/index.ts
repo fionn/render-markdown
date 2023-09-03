@@ -1,14 +1,12 @@
-#!/usr/bin/env node
-
 "use strict";
 
-const fs = require("node:fs")
-const core = require('@actions/core')
-const github = require('@actions/github')
-const { Octokit } = require("@octokit/core");
-const render = require("./render.js")
+import fs = require("node:fs")
+import core = require('@actions/core')
+import github = require('@actions/github')
+import { Octokit } from "@octokit/core"
+import render = require("./render.js")
 
-async function get_repo_user(octokit) {
+async function get_repo_user(octokit: Octokit): Promise<any> {
     try {
         var username = github.context.payload.repository.owner.name
     } catch {
@@ -22,7 +20,7 @@ async function get_repo_user(octokit) {
     return response.then(response => response.data)
 }
 
-async function main() {
+async function main(): Promise<void> {
     const token = core.getInput("token") || process.env.GITHUB_TOKEN
     const markdown_file = core.getInput("markdown_file") || "README.md"
 
