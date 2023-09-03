@@ -23,7 +23,7 @@ Marketplace link: [`actions/render-markdown`](https://github.com/marketplace/act
 
 ```yaml
 - name: Render markdown
-  uses: actions/md2html-action@master
+  uses: fionn/md2html-action@master
   with:
     token: ${{ github.token }}
     markdown_file: hello.md
