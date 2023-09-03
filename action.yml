@@ -1,5 +1,5 @@
-name: "Markdown to HTML"
-description: "Render HTML from Markdown"
+name: "Render Markdown"
+description: "Render Markdown to HTML"
 
 inputs:
 

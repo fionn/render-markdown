@@ -1,4 +1,4 @@
-# Markdown to HTML
+# Render Markdown
 
 Render Markdown to HTML.
 
