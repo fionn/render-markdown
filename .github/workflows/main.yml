@@ -1,0 +1,23 @@
+on: push
+
+jobs:
+
+  render:
+
+    runs-on: ubuntu-latest
+    name: Render
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3.6.0
+
+      - name: Render
+        id: render
+        uses: fionn/md2html-action@master
+        with:
+          token: ${{ github.token }}
+          markdown_file: README.md
+
+      - name: Get HTML
+        run: echo '${{ steps.render.outputs.html }}'

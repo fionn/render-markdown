@@ -2,8 +2,6 @@
 
 Render Markdown to HTML.
 
-[test](https://example.com/).
-
 ## Inputs
 
 * `markdown_file`
@@ -23,6 +21,6 @@ Render Markdown to HTML.
 - name: Render markdown
   uses: actions/md2html-action@master
   with:
-    github_token: ${{ github.token }}
+    token: ${{ github.token }}
     markdown_file: hello.md
 ```
