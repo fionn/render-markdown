@@ -1,6 +1,10 @@
 # Render Markdown
 
-Render Markdown to HTML.
+Render Markdown to HTML with minimal CSS.
+
+Example output: [this `README.md` rendered](https://fionn.github.io/md2html-action/).
+
+Marketplace link: [`actions/render-markdown`](https://github.com/marketplace/actions/render-markdown).
 
 ## Inputs
 
