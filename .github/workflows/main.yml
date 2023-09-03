@@ -2,6 +2,30 @@ on: push
 
 jobs:
 
+  check_artifact:
+
+    name: Check artifact
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3.6.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Build
+        run: make all
+
+      - name: Compare artifacts
+        run: |
+          [[ "$(git diff dist/ | wc -l)" -lt 1 ]]
+        shell: bash
+
   render:
 
     name: Render
@@ -27,7 +51,7 @@ jobs:
   publish:
 
     name: Publish
-    needs: render
+    needs: [render, check_artifact]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
 
