@@ -20,7 +20,6 @@ jobs:
         uses: fionn/md2html-action@master
         with:
           token: ${{ github.token }}
-          markdown_file: README.md
 
       - name: Get HTML
         run: echo '${{ steps.render.outputs.html }}'
