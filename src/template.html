@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+
+        <title>{{title}}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noai">
+        <meta name="author", content="{{author}}">
+        <meta name="commit", content="{{commit}}">
+
+        <style type="text/css">
+            body {
+                max-width: 700px;
+                min-height: 95vh;
+                display: flex;
+                flex-direction:column;
+            }
+
+            main {
+                padding: 0 1.5em;
+                flex: 1;
+            }
+
+            footer {
+                text-align: center;
+                color: gray;
+                font-size: x-small;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                body {
+                    color: white;
+                    background-color: #111;
+                }
+
+                a {
+                    color: deepskyblue;
+                }
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <main>
+
+            {{body}}
+
+        </main>
+
+    </body>
+
+    <footer>
+        <p>Commit <code>{{commit}}</code>.</p>
+    </footer>
+
+</html>

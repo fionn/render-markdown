@@ -1,0 +1,21 @@
+name: "Markdown to HTML"
+description: "Render HTML from Markdown"
+
+inputs:
+
+  token:
+    description: "GitHub API token"
+    required: false
+
+  markdown_file:
+    description: "Markdown file to render"
+    required: false
+    default: "README.md"
+
+outputs:
+  html:
+    description: "Rendered HTML"
+
+runs:
+  using: "node20"
+  main: "src/main.js"
