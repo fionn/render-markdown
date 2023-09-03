@@ -4,8 +4,11 @@ jobs:
 
   render:
 
-    runs-on: ubuntu-latest
     name: Render
+    runs-on: ubuntu-latest
+
+    outputs:
+      html: ${{ steps.render.outputs.html }}
 
     steps:
 
@@ -21,3 +24,38 @@ jobs:
 
       - name: Get HTML
         run: echo '${{ steps.render.outputs.html }}'
+
+  publish:
+
+    name: Publish
+    needs: render
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+
+    environment:
+      name: pages
+      url: ${{ steps.publish.outputs.page_url }}
+
+    concurrency:
+      group: pages
+
+    steps:
+
+      - name: Write HTML
+        run: |
+          mkdir site
+          echo '${{ needs.render.outputs.html }}' > site/index.html
+
+      - name: Upload tarball
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: site
+
+      - name: Publish
+        id: publish
+        uses: actions/deploy-pages@v2
