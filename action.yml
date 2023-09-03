@@ -19,3 +19,7 @@ outputs:
 runs:
   using: "node20"
   main: "src/main.js"
+
+branding:
+  color: blue
+  icon: file-text
