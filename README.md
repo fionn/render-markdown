@@ -1,12 +1,12 @@
 # Render Markdown
 
-Render Markdown to HTML with minimal CSS.
+Render Markdown to HTML in CI with minimal CSS.
 
 Example output: [this `README.md` rendered](https://fionn.github.io/render-markdown/).
 
-Marketplace link: [`actions/render-markdown`](https://github.com/marketplace/actions/render-markdown).
+## Usage
 
-## Inputs
+### Inputs
 
 * `markdown_file`
   * Optional path to the Markdown file to render. Defaults to `README.md` if not present.
@@ -14,17 +14,17 @@ Marketplace link: [`actions/render-markdown`](https://github.com/marketplace/act
 * `token`
   * Optional, to authenticate to the GitHub API. You will likely get rate-limited without this.
 
-## Outputs
+### Outputs
 
 * `html`
   * Full HTML document with the body populated by the rendered Markdown.
 
-## Example usage
+### Example
 
 ```yaml
 - name: Render markdown
   uses: fionn/render-markdown@master
   with:
     token: ${{ github.token }}
-    markdown_file: hello.md
+    markdown_file: example.md
 ```
