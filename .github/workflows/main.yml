@@ -19,7 +19,7 @@ jobs:
           cache: npm
 
       - name: Build
-        run: make all
+        run: make --always-make all
 
       - name: Compare artifacts
         run: |

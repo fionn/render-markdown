@@ -5,9 +5,6 @@ NCC = node_modules/.bin/ncc
 .PHONY: all
 all: dist/index.js
 
-package.json:
-	npm init
-
 package-lock.json: package.json
 	# Also creates node_modules/
 	npm install @actions/core
