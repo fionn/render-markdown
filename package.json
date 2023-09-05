@@ -1,5 +1,5 @@
 {
-  "name": "md2html-action",
+  "name": "render-markdown",
   "version": "0.0.1",
   "description": "Render Markdown to HTML",
   "main": "src/main.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fionn/md2html-action.git"
+    "url": "git+https://github.com/fionn/render-markdown.git"
   },
   "author": "Fionn Fitzmaurice",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/fionn/md2html-action/issues"
+    "url": "https://github.com/fionn/render-markdown/issues"
   },
-  "homepage": "https://github.com/fionn/md2html-action#readme",
+  "homepage": "https://github.com/fionn/render-markdown#readme",
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",

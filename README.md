@@ -2,7 +2,7 @@
 
 Render Markdown to HTML with minimal CSS.
 
-Example output: [this `README.md` rendered](https://fionn.github.io/md2html-action/).
+Example output: [this `README.md` rendered](https://fionn.github.io/render-markdown/).
 
 Marketplace link: [`actions/render-markdown`](https://github.com/marketplace/actions/render-markdown).
 
@@ -23,7 +23,7 @@ Marketplace link: [`actions/render-markdown`](https://github.com/marketplace/act
 
 ```yaml
 - name: Render markdown
-  uses: fionn/md2html-action@master
+  uses: fionn/render-markdown@master
   with:
     token: ${{ github.token }}
     markdown_file: hello.md

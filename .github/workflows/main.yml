@@ -41,7 +41,7 @@ jobs:
 
       - name: Render
         id: render
-        uses: fionn/md2html-action@master
+        uses: fionn/render-markdown@master
         with:
           token: ${{ github.token }}
 
