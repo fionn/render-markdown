@@ -1,6 +1,6 @@
 # Render Markdown
 
-Render Markdown to HTML in CI with minimal CSS.
+Render Markdown to HTML in CI with a minimal stylesheet.
 
 Example output: [this `README.md` rendered](https://fionn.github.io/render-markdown/).
 

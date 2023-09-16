@@ -1,6 +1,6 @@
 {
   "name": "render-markdown",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Render Markdown to HTML",
   "main": "src/main.js",
   "scripts": {
@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/fionn/render-markdown#readme",
   "dependencies": {
-    "@actions/core": "^1.10.0",
+    "@actions/core": "^1.10.1",
     "@actions/github": "^5.1.1",
-    "@types/node": "^20.5.9"
+    "@types/node": "^20.6.2"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.36.1",
