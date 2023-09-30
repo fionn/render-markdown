@@ -10,7 +10,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -37,7 +37,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3.6.0
+        uses: actions/checkout@v4
 
       - name: Render
         id: render
@@ -75,7 +75,7 @@ jobs:
           echo '${{ needs.render.outputs.html }}' > site/index.html
 
       - name: Upload tarball
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: site
 
