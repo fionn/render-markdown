@@ -12,6 +12,10 @@
         <meta name="commit" content="{{commit}}">
 
         <style type="text/css">
+            :root {
+                color-scheme: light dark;
+            }
+
             body {
                 display: flex;
                 flex-direction:column;
@@ -33,10 +37,23 @@
                 font-size: x-small;
             }
 
+            a {
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+                color: unset;
+                text-decoration: none;
+                cursor: alias;
+            }
+
             @media (prefers-color-scheme: dark) {
                 body {
-                    color: white;
-                    background-color: #111;
+                    background-color: #0d1117;
                 }
 
                 a {
