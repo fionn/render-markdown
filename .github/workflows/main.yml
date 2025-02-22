@@ -1,4 +1,8 @@
+name: CI
 on: push
+
+permissions:
+  contents: read
 
 jobs:
 
@@ -11,11 +15,13 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Build
@@ -38,6 +44,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Render
         id: render
@@ -75,10 +83,10 @@ jobs:
           echo '${{ needs.render.outputs.html }}' > site/index.html
 
       - name: Upload tarball
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
       - name: Publish
         id: publish
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
