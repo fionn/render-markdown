@@ -18,8 +18,8 @@
   "homepage": "https://github.com/fionn/render-markdown#readme",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0",
-    "@types/node": "^20.17.19"
+    "@actions/github": "^6.0.1",
+    "@types/node": "^20.17.47"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.3",
