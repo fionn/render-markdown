@@ -83,7 +83,7 @@ jobs:
           echo '${{ needs.render.outputs.html }}' > site/index.html
 
       - name: Upload tarball
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
