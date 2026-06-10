@@ -31615,10 +31615,6 @@ exports.html = render_html;
 const fs = __nccwpck_require__(3024);
 const path = __nccwpck_require__(6760);
 const core_1 = __nccwpck_require__(4629);
-function get_title(markdown) {
-    // Assume the source has "# Title".
-    return markdown.split("\n")[0].substring(2);
-}
 async function render_markdown(markdown, octokit) {
     const response = octokit.request("POST /markdown", {
         text: markdown,
@@ -31626,17 +31622,13 @@ async function render_markdown(markdown, octokit) {
     });
     return response.then(response => response.data.trim());
 }
-function render_template(template_file, data) {
-    const template = fs.readFileSync(template_file, "utf8");
-    const keys = Object.keys(data);
-    return keys.reduce((text, key) => text.replaceAll(`{{${key}}}`, data[key]), template);
-}
 async function render_html(markdown, data, octokit) {
-    const title = get_title(markdown);
+    const title = markdown.split("\n")[0].substring(2); // Assume the source has "# Title".
     const body = await render_markdown(markdown, octokit);
     const content = { ...{ title, body }, ...data };
-    const template_path = path.join(__dirname, "..", "src", "template.html");
-    return render_template(template_path, content);
+    const template = fs.readFileSync(path.join(__dirname, "..", "src", "template.html"), "utf8");
+    const keys = Object.keys(content);
+    return keys.reduce((text, key) => text.replaceAll(`{{${key}}}`, content[key]), template);
 }
 async function main() {
     const octokit = new core_1.Octokit({ auth: process.env.GITHUB_TOKEN });
