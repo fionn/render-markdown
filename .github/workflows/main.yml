@@ -49,7 +49,7 @@ jobs:
 
       - name: Render
         id: render
-        uses: fionn/render-markdown@master
+        uses: ./
         with:
           token: ${{ github.token }}
 
