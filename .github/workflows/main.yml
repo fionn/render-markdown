@@ -54,7 +54,9 @@ jobs:
           token: ${{ github.token }}
 
       - name: Get HTML
-        run: echo '${{ steps.render.outputs.html }}'
+        run: echo "$render_output"
+        env:
+          render_output: ${{ steps.render.outputs.html }}
 
   publish:
 
@@ -80,7 +82,9 @@ jobs:
       - name: Write HTML
         run: |
           mkdir site
-          echo '${{ needs.render.outputs.html }}' > site/index.html
+          echo "$render_output" > site/index.html
+        env:
+          render_output: ${{ needs.render.outputs.html }}
 
       - name: Upload tarball
         uses: actions/upload-pages-artifact@v5
