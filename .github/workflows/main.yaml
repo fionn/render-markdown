@@ -49,7 +49,7 @@ jobs:
 
       - name: Render
         id: render
-        uses: ./
+        uses: $/
         with:
           token: ${{ github.token }}
 
