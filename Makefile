@@ -7,10 +7,7 @@ all: dist/index.js
 
 package-lock.json: package.json
 	# Also creates node_modules/
-	npm install @actions/core
-	npm install @actions/github
-	npm install @vercel/ncc
-	npm install @types/node
+	npm install
 
 dist/index.js: $(SRC) package-lock.json tsconfig.json
 	$(NCC) build $<
