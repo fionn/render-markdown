@@ -1,7 +1,8 @@
 "use strict";
 
-import fs = require("node:fs")
-import path = require('node:path')
+import fs from "node:fs"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 import { Octokit } from "@octokit/core"
 
 async function render_markdown(markdown: string, octokit: Octokit): Promise<string> {
@@ -18,7 +19,7 @@ async function render_html(markdown: string, data: any, octokit: Octokit): Promi
     const body = await render_markdown(markdown, octokit)
     const content = {...{title, body}, ...data}
 
-    const template = fs.readFileSync(path.join(__dirname, "..", "src", "template.html"), "utf8")
+    const template = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "src", "template.html"), "utf8")
     const keys = Object.keys(content)
 
     return keys.reduce((text, key) => text.replaceAll(`{{${key}}}`, content[key]),
@@ -35,6 +36,7 @@ async function main(): Promise<void> {
 
 export {render_html as html}
 
-if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)
+    && path.parse(process.argv[1]).name === "render") {
     main();
 }
