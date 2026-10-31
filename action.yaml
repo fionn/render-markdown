@@ -1,24 +1,24 @@
-name: "Render Markdown"
-description: "Render Markdown to HTML"
+name: Render Markdown
+description: Render Markdown to HTML
 
 inputs:
 
   token:
-    description: "GitHub API token"
+    description: GitHub API token
     required: false
 
   markdown_file:
-    description: "Markdown file to render"
+    description: Markdown file to render
     required: false
-    default: "README.md"
+    default: README.md
 
 outputs:
   html:
-    description: "Rendered HTML"
+    description: Rendered HTML
 
 runs:
-  using: "node24"
-  main: "dist/index.js"
+  using: node24
+  main: dist/index.js
 
 branding:
   color: blue
