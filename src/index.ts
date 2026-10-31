@@ -1,10 +1,11 @@
 "use strict";
 
-import fs = require("node:fs")
-import core = require('@actions/core')
-import github = require('@actions/github')
+import fs from "node:fs"
+import { fileURLToPath } from "node:url"
+import * as core from "@actions/core"
+import * as github from "@actions/github"
 import { Octokit } from "@octokit/core"
-import render = require("./render.js")
+import * as render from "./render.js"
 
 async function get_repo_user(octokit: Octokit): Promise<any> {
     try {
@@ -36,6 +37,6 @@ async function main(): Promise<void> {
     core.setOutput("html", html)
 }
 
-if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
     main();
 }
